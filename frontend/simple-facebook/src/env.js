@@ -5,7 +5,7 @@ import {z} from 'zod'
 export const env = createEnv({
     clientPrefix: 'PUBLIC_',
     server: {},
-    runtimeEnv: import.meta.env,
+    runtimeEnv: process.env,
     client: {
         PUBLIC_API_URL: z.string().default('http://localhost:8000'),
     },

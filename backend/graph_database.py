@@ -109,7 +109,8 @@ def edit_user(uri, auth, cur_email, lname, fname, date_of_birth, nationality, ge
     cypher_query = '''
     MATCH (u: User)
     WHERE u.email = $cur_email
-    SET u.email = $new_email, u.lname = $lname, u.fname = $fname, u.date_of_birth = $date_of_birth, u.gender = $gender, u.nationality = $nationality
+    SET u.email = $new_email, u.lname = $lname, u.fname = $fname, u.date_of_birth = $date_of_birth, 
+    u.gender = $gender, u.nationality = $nationality
     '''
 
     with driver.session(database="neo4j") as session:
@@ -254,11 +255,13 @@ def search_users(uri, auth, data: list):
 
     if args == "{}":
         cypher_query='''
-        MATCH (u:User) RETURN u.fname as fname, u.lname as lname, u.email as email, u.nationality as nationality, u.gender as gender, u.date_of_birth as date_of_birth
+        MATCH (u:User) RETURN u.fname as fname, u.lname as lname, u.email as email, 
+        u.nationality as nationality, u.gender as gender, u.date_of_birth as date_of_birth
         '''
     else:
         cypher_query=f'''
-        MATCH (u: User {args}) RETURN u.fname as fname, u.lname as lname, u.email as email, u.nationality as nationality, u.gender as gender, u.date_of_birth as date_of_birth
+        MATCH (u: User {args}) RETURN u.fname as fname, u.lname as lname, 
+        u.email as email, u.nationality as nationality, u.gender as gender, u.date_of_birth as date_of_birth
         '''
 
     with driver.session(database="neo4j") as session:
@@ -290,7 +293,8 @@ def search_posts(uri, auth, data: list, user_email: str = ""):
         '''
     else:
         cypher_query=f'''
-        MATCH (u:User {email_arg})-[:POSTED]->(p: Post {args}) RETURN u.email as poster_email, p.date_posted as date_posted, p.title as title, p.text as text, p.subject as subject
+        MATCH (u:User {email_arg})-[:POSTED]->(p: Post {args}) 
+        RETURN u.email as poster_email, p.date_posted as date_posted, p.title as title, p.text as text, p.subject as subject
         '''
 
     with driver.session(database="neo4j") as session:
@@ -309,7 +313,8 @@ def search_comments(uri, auth, user_email: str = "", post_title: str = ""):
     title_args = "{title: \"" + post_title + "\"}" if post_title != "" else ""
 
     cypher_query = f'''
-       MATCH (u: User {email_args})-[:COMMENTED]->(c: Comment)-[:COMMENTS_ON]->(p: Post {title_args}) RETURN c.date_posted as date_posted, c.text as text, u.email as user_email, p.title as post_title 
+       MATCH (u: User {email_args})-[:COMMENTED]->(c: Comment)-[:COMMENTS_ON]->(p: Post {title_args}) 
+       RETURN c.date_posted as date_posted, c.text as text, u.email as user_email, p.title as post_title 
     '''
 
     with driver.session(database="neo4j") as session:
