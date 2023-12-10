@@ -12,7 +12,6 @@ import { useReactions } from '../Context/ReactionContext'
 const Comment = ({comment, filter, setPostComments}) => {
 
   const [react, setReact] = useState([])
-  const [reactBool, setReactBool] = useState(false)
   const [editBool, setEditBool] = useState(false)
   const {currentUser} = useUsers()
   const {getPostComms, filterComments, getCommData} = useComms()
@@ -21,7 +20,7 @@ const Comment = ({comment, filter, setPostComments}) => {
   useEffect(() => 
   {
     setReact(getReactComms(comment.post_title, comment.user_email))
-  }, [react])
+  }, [react, comment.post_title, comment.user_email, getReactComms])
 
   return (
     <Container sx={{display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "stretch", marginTop:'3%', marginBottom: '3%'}}>

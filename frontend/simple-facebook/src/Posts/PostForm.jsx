@@ -27,7 +27,7 @@ const PostForm = ({addBool, setAddBool, postFilter}) =>
             text: text
         }
 
-        const res = await addPost(post)
+        await addPost(post)
         .catch((e) =>
         {
             alert(e.message)

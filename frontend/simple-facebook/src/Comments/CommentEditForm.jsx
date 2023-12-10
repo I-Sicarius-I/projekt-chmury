@@ -13,7 +13,7 @@ const CommentEditForm = ({edit_comm, post_title, addBool, setAddBool}) => {
   {
     e.preventDefault()
 
-    const res = await editComment(edit_comm.user_email, post_title, text)
+    await editComment(edit_comm.user_email, post_title, text)
     .catch((e) =>
     {
         alert(e.message)

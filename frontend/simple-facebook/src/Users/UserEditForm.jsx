@@ -29,7 +29,7 @@ const UserForm = ({edit_user, addBool, setAddBool, userFilter}) =>
             nationality: nationality
         }
 
-        const res = await editUser(user, edit_user.email)
+        await editUser(user, edit_user.email)
         .catch((e) => 
         {
             alert(e.message)

@@ -27,7 +27,7 @@ const PostEditForm = ({edit_post, addBool, setAddBool, postFilter}) =>
 
         console.log(post)
 
-        const res = await editPost(post, edit_post.title)
+        await editPost(post, edit_post.title)
         .catch((e) =>
         {
             alert(e.message)

@@ -24,7 +24,7 @@ const CommentForm = ({post_title, setPostComms, filter, addBool, setAddBool}) =>
         text: text
     }
 
-    const res = await addComment(comment)
+    await addComment(comment)
     .catch((e) =>
     {
         alert(e.message)

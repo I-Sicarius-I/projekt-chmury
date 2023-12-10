@@ -48,14 +48,14 @@ export const ReactionProvider = (props) =>
 
     const getReactPosts = (title) =>
     {
-        const reactions = reacts.filter((react) => {return react.post_title == title}) 
+        const reactions = reacts.filter((react) => {return react.post_title === title}) 
 
         return reactions
     }
 
     const getReactComms = (title, comm_email) =>
     {
-        const reactions = reactsComm.filter((react) => {return react.post_title == title && react.user_email == comm_email})
+        const reactions = reactsComm.filter((react) => {return react.post_title === title && react.user_email === comm_email})
 
         return reactions
     }
@@ -70,7 +70,7 @@ export const ReactionProvider = (props) =>
             comm_email: ""
         }
 
-        const res = await addReaction(reaction, true)
+        await addReaction(reaction, true)
         .catch((e) => 
         {
             alert(e.message)
@@ -89,7 +89,7 @@ export const ReactionProvider = (props) =>
             comm_email: comm_email
         }
 
-        const res = await addReaction(reaction, false)
+        await addReaction(reaction, false)
         .catch((e) => 
         {
             alert(e.message)

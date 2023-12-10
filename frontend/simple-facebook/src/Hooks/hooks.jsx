@@ -1,6 +1,4 @@
-const api_url = "http://127.0.0.1";
-const api_port = ":8000"
-
+import { env } from "../env"
 
 const serializeData = (query, data) =>
 {
@@ -28,7 +26,7 @@ export const getUsers = async(user) =>
     {
         var query = serializeData("/users", user)
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "GET",
             headers: 
@@ -49,7 +47,7 @@ export const getPosts = async(post) =>
     {
         var query = serializeData("/posts", post)
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "GET",
             headers: 
@@ -70,7 +68,7 @@ export const getComments = async(comment) =>
     {
         var query = serializeData("/comments", comment)
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "GET",
             headers:
@@ -91,7 +89,7 @@ export const getReactions = async(reaction) =>
     {
         var query = serializeData("/reactions", reaction)
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "GET",
             headers:
@@ -110,7 +108,7 @@ export const addUser = async(user) =>
 {
     if(user)
     {
-        const res = await fetch(api_url + api_port + "/add-user", 
+        const res = await fetch(env.PUBLIC_API_URL + "/add-user", 
         {
             method: "POST",
             headers:
@@ -130,7 +128,7 @@ export const addPost = async(post) =>
 {
     if(post)
     {
-        const res = await fetch(api_url + api_port + "/add-post", 
+        const res = await fetch(env.PUBLIC_API_URL + "/add-post", 
         {
             method: "POST",
             headers:
@@ -150,7 +148,7 @@ export const addComment = async(comment) =>
 {
     if(comment)
     {
-        const res = await fetch(api_url + api_port + "/add-comment",
+        const res = await fetch(env.PUBLIC_API_URL + "/add-comment",
         {
             method: "POST",
             headers:
@@ -172,7 +170,7 @@ export const addReaction = async(reaction, isForPost) =>
     {
         var query = (!isForPost) ? "/add-reaction?post=false" : "/add-reaction"
 
-        const res = await fetch(api_url + api_port + query,
+        const res = await fetch(env.PUBLIC_API_URL + query,
         {
             method: "POST",
             headers:
@@ -194,7 +192,7 @@ export const editUser = async(user, cur_email) =>
     {
         var query = "/edit-user?cur_email=" + cur_email
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "PUT",
             headers:
@@ -216,7 +214,7 @@ export const editPost = async(post, cur_title) =>
     {
         var query = "/edit-post?cur_title=" + cur_title
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "PUT",
             headers:
@@ -238,7 +236,7 @@ export const editComment = async(comm_email, post_title, text) =>
     {
         var query = "/edit-comment?comm_email=" + comm_email + "&post_title=" + post_title + "&text=" + text
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "PUT",
             headers:
@@ -259,7 +257,7 @@ export const delUser = async(user_email) =>
     {
         var query = "/del-user?user_email=" + encodeURIComponent(user_email)
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "DELETE",
             headers:
@@ -280,7 +278,7 @@ export const delPost = async(post_title) =>
     {
         var query = "/del-post?post_title=" + encodeURIComponent(post_title)
 
-        const res = await fetch(api_url + api_port + query, 
+        const res = await fetch(env.PUBLIC_API_URL + query, 
         {
             method: "DELETE",
             headers:
@@ -301,7 +299,7 @@ export const delComment = async(comm_email, post_title) =>
     {
         var query = "/del-comment?comm_email=" + encodeURIComponent(comm_email) + "&post_title=" + encodeURIComponent(post_title)
 
-        const res = await fetch(api_url + api_port + query,
+        const res = await fetch(env.PUBLIC_API_URL + query,
         {
             method: "DELETE",
             headers:
@@ -322,7 +320,7 @@ export const delReaction = async(post_title, react_email, isForPost, comm_email)
     {
         var query = (!isForPost) ? "/del-reaction?post_title=" + encodeURIComponent(post_title) + "&react_email=" + encodeURIComponent(react_email) + "&post=false&comm_email=" + encodeURIComponent(comm_email) : "/del-reaction?post_title=" + encodeURIComponent(post_title) + "&react_email=" + encodeURIComponent(react_email)
 
-        const res = await fetch(api_url + api_port + query,
+        const res = await fetch(env.PUBLIC_API_URL + query,
         {
             method: "DELETE",
             headers:

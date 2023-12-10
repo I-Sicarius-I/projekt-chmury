@@ -30,7 +30,7 @@ const UserForm = ({addBool, setAddBool, userFilter}) =>
         }
 
 
-        const res = await addUser(user)
+        await addUser(user)
         .catch((e) =>
         {
             alert(e.message)

@@ -8,7 +8,6 @@ const PostFilterForm = ({filterBool, setFilterBool, setPostFilter}) => {
     const [title, setTitle] = useState("")
     const [subject, setSubject] = useState("")
     const [date, setDate] = useState("")
-    const [email, setEmail] = useState("")
     const [text, setText] = useState("")
 
     const onSubmit = async(e) => 
@@ -17,7 +16,6 @@ const PostFilterForm = ({filterBool, setFilterBool, setPostFilter}) => {
 
         const filter = 
         {
-            poster_email: email,
             title: title,
             subject: subject,
             date_posted: date,

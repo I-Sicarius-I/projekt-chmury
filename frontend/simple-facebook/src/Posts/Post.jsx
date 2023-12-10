@@ -1,5 +1,5 @@
 import {Container, Typography, Button, Grid} from '@mui/material'
-import { delPost, getReactions } from '../Hooks/hooks'
+import { delPost } from '../Hooks/hooks'
 import { useState } from 'react'
 import Comments from '../Comments/Comments'
 import React from 'react'
@@ -17,7 +17,6 @@ const Post = ({post, postFilter}) =>
 {
     const [react, setReact] = useState([])
     const [postComms, setPostComms] = useState([])
-    const [filterComms, setFilterComms] = useState([])
     const [filter, setFilter] = useState({})
     const [filterBool, setFilterBool] = useState(false)
     const [addBool, setAddBool] = useState(false)
@@ -30,10 +29,10 @@ const Post = ({post, postFilter}) =>
 
     useEffect(() =>
         {
-            setPostComms(getPostComms(post.title, filterComms, filter))
+            setPostComms(getPostComms(post.title, [], filter))
             setReact(getReactPosts(post.title))
         }
-    , [postComms, react])
+    , [postComms, react, filter, post.title, getPostComms, getReactPosts])
 
     return(
         <Container sx={{display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "stretch", marginTop:'10%', marginBottom: '10%'}}>
@@ -62,7 +61,7 @@ const Post = ({post, postFilter}) =>
                         {
                             async() => 
                             { 
-                                const res = await addReactionPost(post.title, currentUser.email, "Like")
+                                await addReactionPost(post.title, currentUser.email, "Like")
                                 setReact(getReactPosts(post.title))
                             }
                         }>
@@ -72,7 +71,7 @@ const Post = ({post, postFilter}) =>
                         {
                             async()=>
                             {
-                                const res = await addReactionPost(post.title, currentUser.email, "Dislike")
+                                await addReactionPost(post.title, currentUser.email, "Dislike")
                                 setReact(getReactPosts(post.title))
                             }
                         }>
@@ -104,7 +103,7 @@ const Post = ({post, postFilter}) =>
                                 Edit Post
                             </Button>
                             <Button onClick={async() => {
-                                const res = await delPost(post.title)
+                                await delPost(post.title)
                                 .catch((e) => 
                                 {
                                     alert(e.message)

@@ -1,6 +1,6 @@
 import React from 'react'
 import Posts from '../Posts/Posts'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { usePosts } from '../Context/PostsContext'
 import { Container, Grid, Button,  Typography} from '@mui/material'
 import PostForm from '../Posts/PostForm'

@@ -1,4 +1,4 @@
-import {Container, Typography, Button, Grid, getAccordionDetailsUtilityClass} from '@mui/material'
+import {Container, Typography, Button, Grid} from '@mui/material'
 import React from 'react'
 import { useUsers } from '../Context/UserContext'
 import { delUser } from '../Hooks/hooks'
@@ -39,7 +39,7 @@ const User = ({user, userFilter}) =>
                             setCurrentUser({})
                         }
                     }}>
-                    {(Object.keys(currentUser).length == 0 || currentUser.email !== user.email) ? "Switch user" : "Reset user"}
+                    {(Object.keys(currentUser).length === 0 || currentUser.email !== user.email) ? "Switch user" : "Reset user"}
                 </Button>
                 {
                     currentUser.email === user.email ? 
@@ -50,7 +50,7 @@ const User = ({user, userFilter}) =>
                             </Button>
                             <Button onClick={async() =>
                                 {
-                                    const res = await delUser(user.email)
+                                    await delUser(user.email)
                                     .catch((e) => {
                                         alert(e.message)
                                     })

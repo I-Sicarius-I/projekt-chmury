@@ -42,11 +42,11 @@ export const CommentProvider = (props) =>
 
         if(typeof filter === 'undefined' || Object.keys(filter).length === 0)
         {
-            comments = comms.filter((comm) => {return comm.post_title == title}) 
+            comments = comms.filter((comm) => {return comm.post_title === title}) 
         }
         else
         {
-            comments = filteredComms.filter((comm) => {return comm.post_title == title})
+            comments = filteredComms.filter((comm) => {return comm.post_title === title})
         }
 
         return comments
