@@ -44,10 +44,10 @@ const Post = ({post, postFilter}) =>
                 {post.subject}
             </Typography>
             <Typography variant="h5">
-                {post.date_posted}
+                {post.poster_email}
             </Typography>
             <Typography variant="h5">
-                {post.poster_email}
+                {post.date_posted}
             </Typography>
             <Typography variant="p">
                 {post.text}
