@@ -33,7 +33,7 @@ function App()
         {
           root:
           {
-            backgroundColor: "#e9eff5",
+            backgroundColor: "#bbdffc",
             color: "black",
             borderRadius: "8px",
             marginTop: "2px",
