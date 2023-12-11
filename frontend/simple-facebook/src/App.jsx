@@ -7,8 +7,7 @@ import { PostProvider } from './Context/PostsContext';
 import Navbar from './Components/Navbar';
 import { CommentProvider } from './Context/CommentContext';
 import { ReactionProvider } from './Context/ReactionContext';
-import { createTheme } from '@mui/system';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, createTheme } from '@mui/material';
 
 
 function App() 
@@ -21,8 +20,22 @@ function App()
           variant: "contained"
         },
         styleOverrides: {
-          color: "white",
-          backgroundColor: "#13206e"
+          root:
+          {
+            color: "white",
+            backgroundColor: "#13206e"
+          }
+        }
+      },
+      MuiContainer:{
+        styleOverrides:
+        {
+          root:
+          {
+            backgroundColor: "#dceffa",
+            color: "black",
+            borderRadius: "8px"
+          }
         }
       }
     }
