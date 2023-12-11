@@ -13,7 +13,7 @@ const PostPage = () => {
     const [postFilter, setPostFilter] = useState({})
 
   return (
-        <Container sx={{display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>
+        <Container sx={{backgroundColor: "#e3f6ff", display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>
             <Grid sx={{display: "flex", flexDirection: "column", borderBottom: "2px solid"}}>
                 <Typography variant="h3" sx={{marginBottom: "2%"}}>
                     Frontpage

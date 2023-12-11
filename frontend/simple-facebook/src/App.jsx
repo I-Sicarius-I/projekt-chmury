@@ -56,6 +56,7 @@ function App()
                 <Navbar />
                 <Routes>
                   <Route path="/" element={<PostPage />}/>
+                  <Route path="/posts" element={<PostPage />}/>
                   <Route path="/users" element={<UserPage />}/>
                 </Routes>
               </div>

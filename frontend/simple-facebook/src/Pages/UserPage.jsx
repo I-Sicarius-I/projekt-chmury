@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Container, Button, Typography, Grid} from '@mui/material'
+import { Container, Button, Typography, Grid, Box} from '@mui/material'
 import UserFilterForm from '../Users/UserFilterForm'
 import Users from '../Users/Users'
 import UserForm from '../Users/UserForm'
@@ -13,7 +13,7 @@ const UserPage = () => {
   const [filterBool, setFilterBool] = useState(false)
 
   return (
-    <Container sx={{display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>   
+    <Container sx={{backgroundColor: "#e3f6ff", display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>   
         <Grid sx={{display: "flex", flexDirection: "column", borderBottom: "2px solid"}}>
             <Typography variant="h3" sx={{marginBottom: "2%"}}>
                 Current User{(Object.keys(currentUser).length > 0) ? ": " + currentUser.fname + " " + currentUser.lname : ""}

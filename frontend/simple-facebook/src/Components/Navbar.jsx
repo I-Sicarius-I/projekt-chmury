@@ -7,7 +7,7 @@ const Navbar = () => {
     <Box sx={{display: 'flex'}}>
         <AppBar sx={{display: 'flex', flexDirection: 'column', backgroundColor: '#66b7ed', alignItems: 'center', px: { xs: 0, sm: 0, md: 0, lg: '5%', xl: '10%' }}}>
             <Toolbar>
-                <NavLink to="/" style={{display: "inline-block"}}>
+                <NavLink to="/posts" style={{display: "inline-block"}}>
                     <Button>
                         Posts
                     </Button>
