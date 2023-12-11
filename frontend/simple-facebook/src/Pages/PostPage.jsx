@@ -5,12 +5,14 @@ import { usePosts } from '../Context/PostsContext'
 import { Container, Grid, Button,  Typography} from '@mui/material'
 import PostForm from '../Posts/PostForm'
 import PostFilterForm from '../Posts/PostFilterForm'
+import { useUsers } from '../Context/UserContext'
 
 const PostPage = () => {
     const {posts, getPostData} = usePosts()
     const [addBool, setAddBool] = useState(false)
     const [filterBool, setFilterBool] = useState(false)
     const [postFilter, setPostFilter] = useState({})
+    const {currentUser} = useUsers()
 
   return (
         <Container sx={{backgroundColor: "#aedbff", display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>
@@ -18,18 +20,22 @@ const PostPage = () => {
                 <Typography variant="h3" sx={{marginBottom: "2%"}}>
                     Frontpage
                 </Typography>
-                <Button sx={{borderBottom: "2px solid"}} onClick={() => 
                 {
-                    setAddBool(!addBool)
-                }}>
-                    Add Post
-                </Button>
+                Object.keys(currentUser).length > 0 ? 
+
+                    (<Button onClick={() => 
+                    {
+                        setAddBool(!addBool)
+                    }}>
+                        Add Post
+                    </Button>) : (<></>)
+                }
                 {
                     addBool ? (
                     <PostForm addBool={addBool} setAddBool={setAddBool} postFilter={postFilter}/>
                     ) : (<></>)
                 }
-                <Button sx={{borderBottom: "2px solid"}} onClick={() => 
+                <Button onClick={() => 
                 {
                     if(Object.keys(postFilter).length === 0)
                     {
