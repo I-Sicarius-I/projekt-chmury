@@ -23,7 +23,7 @@ const Comment = ({comment, filter, setPostComments}) => {
   }, [react, comment.post_title, comment.user_email, getReactComms])
 
   return (
-    <Container sx={{display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "stretch", marginTop:'3%', marginBottom: '3%'}}>
+    <Container sx={{display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "stretch", marginTop:'3%', marginBottom: '3%', backgroundColor: '#90aed4'}}>
         <Typography variant="h5">
             {comment.user_email}
         </Typography>

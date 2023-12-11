@@ -34,7 +34,9 @@ function App()
           {
             backgroundColor: "#dceffa",
             color: "black",
-            borderRadius: "8px"
+            borderRadius: "8px",
+            marginTop: "2px",
+            marginBottom: "2px",
           }
         }
       }
