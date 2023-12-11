@@ -23,7 +23,8 @@ function App()
           root:
           {
             color: "white",
-            backgroundColor: "#13206e"
+            backgroundColor: "#13206e",
+            marginBottom: "3%"
           }
         }
       },
@@ -32,7 +33,7 @@ function App()
         {
           root:
           {
-            backgroundColor: "#dceffa",
+            backgroundColor: "#e9eff5",
             color: "black",
             borderRadius: "8px",
             marginTop: "2px",
