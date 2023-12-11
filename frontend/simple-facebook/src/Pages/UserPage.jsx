@@ -13,7 +13,7 @@ const UserPage = () => {
   const [filterBool, setFilterBool] = useState(false)
 
   return (
-    <Container sx={{backgroundColor: "#e0f1ff", display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>   
+    <Container sx={{backgroundColor: "#b7e9ff", display: "flex", flexDirection: "column", marginTop: "5%", alignItems: "center"}}>   
         <Grid sx={{display: "flex", flexDirection: "column", borderBottom: "2px solid"}}>
             <Typography variant="h3" sx={{marginBottom: "2%"}}>
                 Current User{(Object.keys(currentUser).length > 0) ? ": " + currentUser.fname + " " + currentUser.lname : ""}
