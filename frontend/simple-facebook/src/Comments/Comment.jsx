@@ -39,7 +39,7 @@ const Comment = ({comment, filter, setPostComments}) => {
         {
           editBool ? (<CommentEditForm edit_comm={comment} addBool={editBool} setAddBool={setEditBool} post_title={comment.post_title} filter={filter}/>) : (<></>)
         }
-        <Grid>
+        <Grid sx={{marginTop: '10px'}}>
             {
               Object.keys(currentUser).length > 0 ?
               (

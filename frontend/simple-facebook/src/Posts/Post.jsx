@@ -46,6 +46,9 @@ const Post = ({post, postFilter}) =>
             <Typography variant="h5">
                 {post.date_posted}
             </Typography>
+            <Typography variant="h5">
+                {post.poster_email}
+            </Typography>
             <Typography variant="p">
                 {post.text}
             </Typography>
@@ -119,6 +122,9 @@ const Post = ({post, postFilter}) =>
             { filterBool ? (<CommentFilterForm currentFilter={filter} setPostComms={setPostComms} setFilterComments={setFilter} post_title={post.title} filterBool={filterBool} setFilterBool={setFilterBool}/>) : (<></>) }
             { addBool ? (<CommentForm setPostComms={setPostComms} setAddBool={setAddBool} addBool={addBool} post_title={post.title} filter={filter}/>) : (<></>)}
             <Container>
+                <Typography variant="h5">
+                    Comments:
+                </Typography>
                 <Comments comments={postComms} setPostComments={setPostComms} filter={filter}/>
             </Container>
         </Container>

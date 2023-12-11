@@ -24,7 +24,9 @@ function App()
           {
             color: "white",
             backgroundColor: "#13206e",
-            marginBottom: "3%"
+            marginBottom: "3%",
+            marginLeft: "2px",
+            marginRight: "2px"
           }
         }
       },
