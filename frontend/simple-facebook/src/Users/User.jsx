@@ -11,7 +11,7 @@ const User = ({user, userFilter}) =>
     const [addBool, setAddBool] = useState(false)
 
     return(
-        <Container sx={{display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "stretch", marginTop:'3%', marginBottom: '3%'}}>
+        <Container sx={{backgroundColor: "red", display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "stretch", marginTop:'3%', marginBottom: '3%'}}>
             <Typography variant="h5">
                 {user.fname + " " + user.lname}
             </Typography>
