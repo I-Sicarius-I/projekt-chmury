@@ -118,7 +118,7 @@ const Post = ({post, postFilter}) =>
             </Grid>
             { filterBool ? (<CommentFilterForm currentFilter={filter} setPostComms={setPostComms} setFilterComments={setFilter} post_title={post.title} filterBool={filterBool} setFilterBool={setFilterBool}/>) : (<></>) }
             { addBool ? (<CommentForm setPostComms={setPostComms} setAddBool={setAddBool} addBool={addBool} post_title={post.title} filter={filter}/>) : (<></>)}
-            <Container>
+            <Container sx={{backgroundColor: "#c7e6ff", marginTop:"5px"}}>
                 <Comments comments={postComms} setPostComments={setPostComms} filter={filter}/>
             </Container>
         </Container>
